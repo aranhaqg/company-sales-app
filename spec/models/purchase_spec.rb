@@ -7,4 +7,7 @@ RSpec.describe Purchase, type: :model do
   it { should validate_presence_of(:purchaser) }
   it { should validate_presence_of(:item) }
   it { should validate_presence_of(:merchant) }
+  it { should validate_presence_of(:total_price_cents) }
+
+  it { should belong_to(:sale_report).without_validating_presence }
 end
