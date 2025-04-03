@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_31_214912) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_03_021855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
-
-  create_table "items", force: :cascade do |t|
-    t.string "description", null: false
-    t.integer "price_cents", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "merchants", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "description", null: false
+    t.integer "price_cents", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,14 +37,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_31_214912) do
   create_table "purchases", force: :cascade do |t|
     t.integer "count", null: false
     t.bigint "purchaser_id", null: false
-    t.bigint "item_id", null: false
+    t.bigint "product_id", null: false
     t.bigint "merchant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "total_price_cents", null: false
     t.bigint "sale_report_id"
-    t.index ["item_id"], name: "index_purchases_on_item_id"
     t.index ["merchant_id"], name: "index_purchases_on_merchant_id"
+    t.index ["product_id"], name: "index_purchases_on_product_id"
     t.index ["purchaser_id"], name: "index_purchases_on_purchaser_id"
     t.index ["sale_report_id"], name: "index_purchases_on_sale_report_id"
   end
