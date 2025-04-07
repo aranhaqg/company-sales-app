@@ -1,0 +1,14 @@
+<h1>Upload Sales Data</h1>
+
+<%= form_with model: @sale_report, url: sale_reports_path, local: true, html: { multipart: true } do |form| %>
+  <div>
+    <%= form.label :file, "Choose a file to upload" %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div>
+    <%= form.submit "Upload File" %>
+  </div>
+<% end %>
+
+<%= link_to "View All Sale Reports", sale_reports_path %>

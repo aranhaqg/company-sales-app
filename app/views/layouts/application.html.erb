@@ -22,7 +22,23 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <header>
+    <h1>Company Sales App</h1>
+  </header>
+
   <body>
+    <% if flash[:notice] %>
+      <div class="flash notice">
+        <%= flash[:notice] %>
+        <button class="close-flash" onclick="this.parentElement.style.display='none';">&times;</button>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="flash alert">
+        <%= flash[:alert] %>
+        <button class="close-flash" onclick="this.parentElement.style.display='none';">&times;</button>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

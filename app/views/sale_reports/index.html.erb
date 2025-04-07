@@ -1,0 +1,25 @@
+<h1>Sale Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>File Path</th>
+      <th>Total Gross Income</th>
+      <th>Uploaded At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sale_reports.each do |sale_report| %>
+      <tr>
+        <td><%= sale_report.file_path %></td>
+        <td><%= format_currency(sale_report.total_gross_income_cents) %></td>
+        <td><%= sale_report.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Total All-Time Gross Income</h2>
+<p><%= format_currency(@total_all_time_gross_income_cents) %></p>
+
+<%= link_to "Upload Another File", new_sale_report_path %>
