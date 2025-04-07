@@ -7,7 +7,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: company-sales-db
+      POSTGRES_DB: company-sales-db-dev # Default to development DB
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     networks:
@@ -17,18 +17,22 @@ services:
   web:
     tty: true
     stdin_open: true
-    build: .
+    build:
+      context: .
+      args:
+        DB_USERNAME: ${DB_USERNAME}
+        DB_PASSWORD: ${DB_PASSWORD}
+        DB_NAME: ${DB_NAME}
     volumes:
       - .:/app
       - bundle_path:/usr/local/bundle
     environment:
       DB_HOST: db
-      DB_NAME: company-sales-db
-      DB_USERNAME: postgres
-      DB_PASSWORD: postgres
-      RAILS_MASTER_KEY: f0869c37b822b72deb675caee0ec9c9e
+      DB_NAME: ${DB_NAME} # Use environment variable for DB name
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "3000:80"
+      - "4000:4000"
     depends_on:
       - db
     networks:

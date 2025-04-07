@@ -65,7 +65,7 @@ http://localhost:3000
 ### 1. Create and Migrate the Database
 Run the following command to create and migrate the database:
 ```
-docker compose exec web rails db:prepare
+docker compose exec web ./bin/rails db:prepare
 ```
 
 This will:
@@ -78,11 +78,11 @@ Run all pending migrations.
 ### 1. Run RSpec Tests
 To run the test suite, use the following command:
 ```
-docker compose exec web rspec
+docker compose exec web ./bin/rails spec
 ```
 
 ### 2. Check SimpleCov Coverage
-After running the tests, SimpleCov will generate a coverage report in the coverage/ directory. To view the report:
+After running the tests, SimpleCov will generate a coverage report in the `coverage/` directory. To view the report:
 
 1. Open the `coverage/index.html` file in your browser:
 ```
@@ -93,7 +93,7 @@ open coverage/index.html
 ### 3. Run Brakeman
 To run Brakeman for static analysis of security vulnerabilities, use the following command:
 ```
-docker compose exec web brakeman
+docker compose exec web ./bin/brakeman
 ```
 This will scan the application for potential security issues and provide a detailed report.
 ---
