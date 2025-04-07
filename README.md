@@ -1,6 +1,6 @@
 # Company Sales App
 
-This application processes sales data from uploaded files, calculates gross income, and provides a summary of sales reports.
+This application processes sales data from uploaded files separated by tab, calculates gross income, and provides a summary of sales reports.
 
 ## Application Dependencies
 
@@ -18,7 +18,6 @@ This application processes sales data from uploaded files, calculates gross inco
 - **Docker**: Ensure Docker is installed on your system. You can download it from [Docker's official website](https://www.docker.com/).
 - **Docker Compose**: Comes bundled with Docker Desktop.
 
----
 
 ## Getting Started
 
@@ -95,7 +94,9 @@ To run Brakeman for static analysis of security vulnerabilities, use the followi
 ```
 docker compose exec web ./bin/brakeman
 ```
+
 This will scan the application for potential security issues and provide a detailed report.
+
 ---
 
 ## Additional Notes
