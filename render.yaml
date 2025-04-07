@@ -1,7 +1,7 @@
 databases:
   - name: company-sales-app
-    databaseName: company-sales-app
-    user: company-sales-app
+    databaseName: companysalesapp
+    user: companysalesapp
     plan: free
 
 services:
@@ -10,7 +10,7 @@ services:
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
