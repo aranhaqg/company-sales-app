@@ -50,10 +50,13 @@ test:
 #
 production:
   primary: &primary_production
-    <<: *default
-    database: company_sales_app_production
-    username: company_sales_app
-    password: <%= ENV["COMPANY_SALES_APP_DATABASE_PASSWORD"] %>
+    adapter: postgresql
+    encoding: unicode
+    host: <%= ENV.fetch("PROD_DATABASE_URL") %>
+    database: companysalesapp
+    username: <%= ENV["PROD_DATABASE_USERNAME"] %>
+    password: <%= ENV["PROD_DATABASE_PASSWORD"] %>
+    pool: 5
   cache:
     <<: *primary_production
     database: company_sales_app_production_cache

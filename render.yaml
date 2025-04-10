@@ -13,7 +13,7 @@ services:
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
-      - key: DATABASE_URL
+      - key: PROD_DATABASE_URL
         fromDatabase:
           name: company-sales-app
           property: connectionString
