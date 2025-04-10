@@ -12,7 +12,7 @@ class SaleReportsController < ApplicationController
     end
 
     # Use Tempfile to securely handle the uploaded file
-    Tempfile.create(['sale_report', File.extname(uploaded_file.original_filename)]) do |tempfile|
+    Tempfile.create([ "sale_report", File.extname(uploaded_file.original_filename) ]) do |tempfile|
       tempfile.binmode
       tempfile.write(uploaded_file.read)
       tempfile.flush

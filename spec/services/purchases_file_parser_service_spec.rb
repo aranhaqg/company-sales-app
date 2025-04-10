@@ -62,7 +62,6 @@ RSpec.describe PurchasesFileParserService, type: :service do
       before do
         # Create a sample file with invalid data
         File.open(file_path, 'w') do |file|
-
           file.puts "Invalid\tData"
         end
 
@@ -80,7 +79,7 @@ RSpec.describe PurchasesFileParserService, type: :service do
 
     context 'when a line fails to parse' do
       before do
-      # Create a sample file with one valid line and one invalid line
+        # Create a sample file with one valid line and one invalid line
         File.open(file_path, 'w') do |file|
           file.puts '"purchaser name"\t"item description"\t"item price"\t"purchase count"\t"merchant address"\t"merchant name"'
           file.puts "John Doe\tItem A\t10.00\t2\t123 Street\tMerchant A"

@@ -58,7 +58,7 @@ class PurchasesFileParserService
             total_price_cents: total_price_cents
         )
 
-        return purchase
+        purchase
     rescue StandardError => e
         Rails.logger.error("Failed to parse line: #{line}.")
         raise "Failed to parse line"

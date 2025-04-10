@@ -49,12 +49,11 @@ group :development, :test do
 
   gem "rspec-rails"
   gem "shoulda-matchers", "~> 6.0"
-  gem 'factory_bot_rails'
-  gem 'simplecov', require: false
-  gem 'dotenv-rails'
+  gem "factory_bot_rails"
+  gem "simplecov", require: false
+  gem "dotenv-rails"
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
 end
 
 group :development do
