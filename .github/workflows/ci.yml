@@ -9,6 +9,19 @@ jobs:
   scan_ruby:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:11-alpine
+        ports:
+          - "5432:5432"
+        env:
+          PPOSTGRES_DB: rails_test
+          POSTGRES_USER: rails
+          POSTGRES_PASSWORD: password
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,8 +37,8 @@ jobs:
 
       - name: Run Rspec tests
         env:
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_USERNAME: rails
+          DB_PASSWORD: password
         run: bin/rails db:create db:schema:load && bin/rails spec
 
   scan_js:
