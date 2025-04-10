@@ -26,7 +26,7 @@ jobs:
         env:
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        run: bin/rails spec
+        run: bin/rails db:create db:schema:load && bin/rails spec
 
   scan_js:
     runs-on: ubuntu-latest
