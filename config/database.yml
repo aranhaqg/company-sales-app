@@ -50,6 +50,7 @@ test:
 #
 production:
   primary: &primary_production
+    <<: *default
     database: companysalesapp
   cache:
     <<: *primary_production
