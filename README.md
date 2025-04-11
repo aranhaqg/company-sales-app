@@ -1,5 +1,9 @@
 # Company Sales App
 
+![CI](https://github.com/aranhaqg/company-sales-app/actions/workflows/ci.yml/badge.svg)
+
+A Ruby on Rails application for managing company sales.
+
 This application processes sales data from uploaded files separated by tab, calculates gross income, and provides a summary of sales reports.
 
 ## Application Dependencies
