@@ -48,7 +48,7 @@ group :development, :test do
   gem "brakeman", require: false
 
   gem "rspec-rails"
-  gem "shoulda-matchers", "~> 6.0"
+  gem "shoulda-matchers", "~> 6.5"
   gem "factory_bot_rails"
   gem "simplecov", require: false
   gem "dotenv-rails"
